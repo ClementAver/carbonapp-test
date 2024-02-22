@@ -1,0 +1,20 @@
+.showList {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.showList article {
+  background-color: rgb(212, 212, 212);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  max-width: 300px;
+  flex: 1 1 300px;
+}
+
+.showList article img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
