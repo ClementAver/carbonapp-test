@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../../show.css";
 
@@ -11,6 +11,9 @@ export default function Show() {
     fetch(`https://api.tvmaze.com/shows/${id}`)
       .then((response) => {
         if (response.ok) return response.json();
+        else {
+          alert("No match");
+        }
       })
       .then((data) => {
         console.log(data);
@@ -25,15 +28,28 @@ export default function Show() {
           src={show.image.original}
           alt="cover of the show"
         />
-        <div>
+        <div className="text">
           <h2>{show.name}</h2>
           <p>{show.language}</p>
+          <p>{show.summary.slice(4, -4)}</p>
+
+          <Link
+            to={show.officialSite}
+            target="_blank"
+          >
+            Visit the official website for this show
+          </Link>
         </div>
 
-        <Link to="/">Accueil</Link>
+        <Link to="/">Homepage</Link>
       </>
     );
   } else {
-    return "chargement...";
+    return (
+      <>
+        <p>"chargement..."</p>
+        <Link to="/">Homepage</Link>
+      </>
+    );
   }
 }

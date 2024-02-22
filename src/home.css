@@ -1,7 +1,36 @@
+#root {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#root header,
+#root form,
+#root main {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section p {
+  width: 100%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  margin-bottom: 3rem;
+}
+
 .showList {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
+  justify-content: center;
+  margin: 0 2rem;
 }
 
 .showList article {

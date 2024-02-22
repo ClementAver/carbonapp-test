@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../../home.css";
-import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -48,26 +47,31 @@ export default function Home() {
 
       <main>
         <section className="showList">
-          {shows.length > 0
-            ? shows.map((show, index) => {
-                return (
-                  <article
-                    className="article"
-                    key={index}
-                  >
-                    <img
-                      src={show.show.image && show.show.image.original}
-                      alt="cover of the show"
-                    />
-                    <div>
-                      <h2>{show.show.name}</h2>
-                      <p>{show.show.language && show.show.language}</p>
-                    </div>
-                    <Link to={`show/${show.show.id}`}>View show page</Link>
-                  </article>
-                );
-              })
-            : "⬆️ You are just at one search from you next favorite TV show ! ⬆️"}
+          {shows.length > 0 ? (
+            shows.map((show, index) => {
+              return (
+                <article
+                  className="article"
+                  key={index}
+                >
+                  <img
+                    src={show.show.image && show.show.image.original}
+                    alt="cover of the show"
+                  />
+                  <div>
+                    <h2>{show.show.name}</h2>
+                    <p>{show.show.language && show.show.language}</p>
+                  </div>
+                  <Link to={`show/${show.show.id}`}>View show page</Link>
+                </article>
+              );
+            })
+          ) : (
+            <p>
+              "⬆️ You are just at one search from you next favorite TV show !
+              ⬆️"
+            </p>
+          )}
         </section>
       </main>
     </>

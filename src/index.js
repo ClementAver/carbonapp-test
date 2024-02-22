@@ -5,14 +5,16 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home/Home";
 import Show from "./pages/Show/Show";
+import NotFound from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/show/:id", element: <Show /> },
+      { path: "/show/:id", errorElement: <NotFound />, element: <Show /> },
     ],
   },
 ]);
